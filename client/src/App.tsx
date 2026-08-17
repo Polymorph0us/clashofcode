@@ -1,42 +1,37 @@
+/**
+ * Style system: Tournament Console — routes live inside a stable competition-desk shell
+ * so every screen retains a clear route back to the next battle.
+ */
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import AppShell from "@/components/AppShell";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import Battle from "@/pages/Battle";
+import Dashboard from "@/pages/Dashboard";
+import Friends from "@/pages/Friends";
+import Leaderboard from "@/pages/Leaderboard";
+import Matchmaking from "@/pages/Matchmaking";
 import NotFound from "@/pages/NotFound";
+import Practice from "@/pages/Practice";
+import Profile from "@/pages/Profile";
+import Result from "@/pages/Result";
 import { Route, Switch } from "wouter";
-import ErrorBoundary from "./components/ErrorBoundary";
-import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
-
 
 function Router() {
-  return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
-  );
+  return <AppShell><Switch>
+    <Route path="/" component={Dashboard} />
+    <Route path="/matchmaking" component={Matchmaking} />
+    <Route path="/battle" component={Battle} />
+    <Route path="/result" component={Result} />
+    <Route path="/practice" component={Practice} />
+    <Route path="/leaderboard" component={Leaderboard} />
+    <Route path="/friends" component={Friends} />
+    <Route path="/profile" component={Profile} />
+    <Route component={NotFound} />
+  </Switch></AppShell>;
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
-function App() {
-  return (
-    <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
-  );
+export default function App() {
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark"><TooltipProvider><Toaster theme="dark" richColors position="bottom-right" /><Router /></TooltipProvider></ThemeProvider></ErrorBoundary>;
 }
-
-export default App;

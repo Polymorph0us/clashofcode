@@ -1,0 +1,35 @@
+/**
+ * Style system: Tournament Console — the persistent competition desk retains the CODECLASH
+ * brand in both rail and main canvas, while Arena Red remains exclusive to live match moments.
+ */
+import { Link, useLocation } from "wouter";
+import { Bell, BookOpen, ChevronRight, Crosshair, Flame, Home, Menu, Swords, Trophy, Users, X } from "lucide-react";
+import { useState, type ReactNode } from "react";
+import { Avatar, Pill, RankBadge } from "./ArenaPrimitives";
+import { player } from "@/data/mockData";
+
+const navItems = [
+  { href: "/", label: "Home", icon: Home },
+  { href: "/battle", label: "Battle", icon: Swords },
+  { href: "/practice", label: "Practice", icon: BookOpen },
+  { href: "/leaderboard", label: "Leaderboard", icon: Trophy },
+  { href: "/friends", label: "Friends", icon: Users },
+];
+
+export default function AppShell({ children }: { children: ReactNode }) {
+  const [location] = useLocation();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const closeMobile = () => setMobileOpen(false);
+
+  return <div className="min-h-screen bg-[#101116] text-[#f3f0ea] selection:bg-[#f04432] selection:text-white">
+    <header className="mobile-topbar"><Link href="/" className="flex items-center gap-2" onClick={closeMobile}><img src="/manus-storage/codeclash-mark_03d4d311.png" alt="CodeClash" className="h-8 w-8 object-contain" /><span className="font-display text-base font-bold tracking-[-.06em]">CODECLASH</span></Link><button className="icon-button" aria-label="Open navigation" onClick={() => setMobileOpen((open) => !open)}>{mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}</button></header>
+    <aside className={`arena-rail ${mobileOpen ? "is-open" : ""}`}>
+      <div className="rail-brand"><Link href="/" className="flex items-center gap-3" onClick={closeMobile}><img src="/manus-storage/codeclash-mark_03d4d311.png" alt="CodeClash" className="h-10 w-10 object-contain" /><span><span className="block font-display text-xl font-bold leading-none tracking-[-.08em]">CODECLASH</span><span className="mt-1.5 block font-mono text-[9px] tracking-[.16em] text-[#747783]">COMPETITIVE DSA ARENA</span></span></Link></div>
+      <nav className="mt-8 flex flex-col gap-1" aria-label="Main navigation">{navItems.map(({ href, label, icon: Icon }) => { const active = href === "/" ? location === "/" : location.startsWith(href); return <Link key={href} href={href} onClick={closeMobile} className={`rail-link ${active ? "is-active" : ""}`}><Icon className="h-[18px] w-[18px]" /><span>{label}</span>{active && <ChevronRight className="ml-auto h-4 w-4" />}</Link>; })}</nav>
+      <div className="mt-7 px-3"><Link href="/matchmaking" onClick={closeMobile} className="battle-rail-cta"><Crosshair className="h-4 w-4" /><span>Find opponent</span></Link></div>
+      <div className="mt-auto px-3 pb-5"><Link href="/profile" onClick={closeMobile} className={`profile-rail ${location.startsWith("/profile") ? "is-active" : ""}`}><Avatar initials={player.initials} tone="red" size="sm" /><span className="min-w-0 flex-1"><span className="block truncate text-sm font-medium text-[#eeeef0]">{player.handle}</span><span className="block font-mono text-[10px] text-[#747783]">{player.rating} RATING</span></span><RankBadge rank={player.rank} className="scale-90 origin-right" /></Link></div>
+    </aside>
+    {mobileOpen && <button aria-label="Close navigation" className="fixed inset-0 z-30 bg-black/60 lg:hidden" onClick={closeMobile} />}
+    <main className="app-canvas"><div className="desktop-topline"><Link href="/" className="desktop-wordmark"><img src="/manus-storage/codeclash-mark_03d4d311.png" alt="" /><span>CODECLASH</span></Link><span className="topline-divider" /><Pill tone="red"><span className="live-dot" /> Arena live</Pill><span className="font-mono text-[10px] tracking-[.13em] text-[#747783]">SEASON 03 · WEEK 07</span><div className="ml-auto flex items-center gap-3"><button className="icon-button h-8 w-8" aria-label="Notifications"><Bell className="h-4 w-4" /><span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-[#f04432]" /></button><Pill><Flame className="h-3 w-3 text-[#e1a759]" /> {player.streak} day run</Pill></div></div>{children}</main>
+  </div>;
+}
