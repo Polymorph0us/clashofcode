@@ -4,7 +4,7 @@
  */
 import { Avatar, IconLabel, MatchLine, Meter, Pill, RankBadge, StatBlock, Streak, Trend } from "@/components/ArenaPrimitives";
 import { mastery, player, quests, recentBattles, recommendations } from "@/data/mockData";
-import { ArrowUpRight, Check, ChevronRight, Crosshair, Dices, Medal, Plus, Sparkles, Swords, Target, Timer, Trophy } from "lucide-react";
+import { ArrowUpRight, Check, ChevronRight, Crosshair, Dices, Medal, Sparkles, Swords, Target, Timer, Trophy } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Dashboard() {
@@ -18,7 +18,7 @@ export default function Dashboard() {
           <p className="font-mono text-[11px] uppercase tracking-[.16em] text-[#aaaeb9]">Tuesday // Jan 14 // 20:42</p>
           <h1 className="mt-2 max-w-[580px] font-display text-4xl font-bold leading-[.94] tracking-[-.07em] text-[#f6f3ed] sm:text-5xl lg:text-6xl">Your next rating point is on the clock.</h1>
           <p className="mt-5 max-w-[450px] text-sm leading-6 text-[#b1b4bc]">One deliberate battle is all it takes to move the needle. The arena is matching players in your range now.</p>
-          <div className="mt-7 flex flex-wrap gap-3"><Link href="/matchmaking" className="primary-button"><Crosshair className="h-4 w-4" />Find opponent</Link><Link href="/rooms/create" className="secondary-button"><Plus className="h-4 w-4" />Create room</Link></div>
+          <div className="mt-7 flex flex-wrap gap-3"><Link href="/matchmaking" className="primary-button"><Crosshair className="h-4 w-4" />Find opponent</Link></div>
         </div>
       </div>
       <div className="relative z-10 mt-8 grid grid-cols-2 border-t border-white/10 pt-5 sm:flex sm:w-[560px] sm:justify-between">

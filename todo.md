@@ -1,5 +1,10 @@
 # ClashOfCode Room Flow Update
 
+- [x] Add a dedicated edit-profile route with cohesive player identity and account-preference controls.
+- [x] Remove duplicate host-room and join-room actions from the authenticated dashboard rail and central dashboard area as requested.
+- [x] Keep login and signup actions only in a sticky public header, removing duplicate hero authentication buttons.
+- [x] Verify the edit profile flow, simplified dashboard, sticky public header, responsive presentation, and production build.
+
 - [x] Add a public landing page with hero, live ticker, how-it-works, features, footer, and normal-scrolling navigation.
 - [x] Create a lightweight animated hero asset that evokes real-time DSA battles.
 - [x] Add cohesive login and signup routes with clear inline client-side validation.

@@ -9,6 +9,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Battle from "@/pages/Battle";
 import Dashboard from "@/pages/Dashboard";
+import EditProfile from "@/pages/EditProfile";
 import Friends from "@/pages/Friends";
 import Leaderboard from "@/pages/Leaderboard";
 import Landing from "@/pages/Landing";
@@ -25,6 +26,6 @@ import RoomWaiting from "@/pages/RoomWaiting";
 import Signup from "@/pages/Signup";
 import { Route, Switch } from "wouter";
 
-function PrivateRouter() { return <AppShell><Switch><Route path="/app" component={Dashboard} /><Route path="/matchmaking" component={Matchmaking} /><Route path="/rooms/create" component={RoomCreate} /><Route path="/join/:code" component={RoomJoin} /><Route path="/join" component={RoomJoin} /><Route path="/room/:code/wait" component={RoomWaiting} /><Route path="/room/:code" component={RoomLobby} /><Route path="/battle" component={Battle} /><Route path="/result" component={Result} /><Route path="/practice" component={Practice} /><Route path="/leaderboard" component={Leaderboard} /><Route path="/friends" component={Friends} /><Route path="/profile" component={Profile} /><Route component={NotFound} /></Switch></AppShell>; }
+function PrivateRouter() { return <AppShell><Switch><Route path="/app" component={Dashboard} /><Route path="/matchmaking" component={Matchmaking} /><Route path="/rooms/create" component={RoomCreate} /><Route path="/join/:code" component={RoomJoin} /><Route path="/join" component={RoomJoin} /><Route path="/room/:code/wait" component={RoomWaiting} /><Route path="/room/:code" component={RoomLobby} /><Route path="/battle" component={Battle} /><Route path="/result" component={Result} /><Route path="/practice" component={Practice} /><Route path="/leaderboard" component={Leaderboard} /><Route path="/friends" component={Friends} /><Route path="/profile/edit" component={EditProfile} /><Route path="/profile" component={Profile} /><Route component={NotFound} /></Switch></AppShell>; }
 function Router() { return <Switch><Route path="/" component={Landing} /><Route path="/login" component={Login} /><Route path="/signup" component={Signup} /><Route component={PrivateRouter} /></Switch>; }
 export default function App() { return <ErrorBoundary><ThemeProvider defaultTheme="dark"><TooltipProvider><Toaster theme="dark" richColors position="bottom-right" /><Router /></TooltipProvider></ThemeProvider></ErrorBoundary>; }
