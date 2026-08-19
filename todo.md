@@ -1,5 +1,9 @@
 # ClashOfCode Room Flow Update
 
+- [x] Restore one clear room-formation action in the authenticated user experience.
+- [x] Ensure the restored action routes directly to the dedicated room-creation page.
+- [x] Verify the room-formation route and production build.
+
 - [x] Inspect the Vite development-server configuration for the managed-preview HMR WebSocket failure.
 - [x] Apply a compatible HMR/WebSocket configuration and restart the preview service.
 - [x] Verify the preview WebSocket connection and production build after the change.
