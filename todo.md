@@ -1,5 +1,9 @@
 # ClashOfCode Room Flow Update
 
+- [x] Route guest room entries to a separate waiting-room experience rather than the host-admin lobby.
+- [x] Create a guest waiting-room page with room context, participant visibility, and host-start status.
+- [x] Verify the guest hand-off and production build.
+
 - [x] Audit current routes, navigation labels, and repeated branding.
 - [x] Add a dedicated Create Room route with solo/arena modes, player capacity, custom rules, room code, and shareable guest link.
 - [x] Add a Join Room route for signed-in players and guests with room-code entry and share-link support.
