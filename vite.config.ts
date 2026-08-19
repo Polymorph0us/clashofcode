@@ -224,6 +224,12 @@ export default defineConfig({
     port: 3000,
     strictPort: false, // Will find next available port if 3000 is busy
     host: true,
+    // The managed preview terminates TLS and proxies WebSockets on 443. Explicitly
+    // point Vite's browser client at that public endpoint instead of localhost:3000.
+    hmr: {
+      protocol: "wss",
+      clientPort: 443,
+    },
     allowedHosts: [
       ".manuspre.computer",
       ".manus.computer",

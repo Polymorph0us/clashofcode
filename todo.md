@@ -1,5 +1,9 @@
 # ClashOfCode Room Flow Update
 
+- [x] Inspect the Vite development-server configuration for the managed-preview HMR WebSocket failure.
+- [x] Apply a compatible HMR/WebSocket configuration and restart the preview service.
+- [x] Verify the preview WebSocket connection and production build after the change.
+
 - [x] Add a dedicated edit-profile route with cohesive player identity and account-preference controls.
 - [x] Remove duplicate host-room and join-room actions from the authenticated dashboard rail and central dashboard area as requested.
 - [x] Keep login and signup actions only in a sticky public header, removing duplicate hero authentication buttons.
