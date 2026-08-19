@@ -85,13 +85,11 @@ The wordmark is a tightly set, all-caps geometric `CODECLASH` with a cut-through
 ## Signature Brand Color
 
 **Arena Red — #F04432.** A saturated, slightly warm red used for the battle CTA, live status, competitive deltas, and key match milestones.
-@@ ## Signature Brand Color
-## Signature Brand Color
-
-**Arena Red — #F04432.** A saturated, slightly warm red used for the battle CTA, live status, competitive deltas, and key match milestones.
 
 ## Style Decisions
 
 - On desktop, the product is a three-zone competition desk: the persistent CODECLASH identity and navigation rail, a dominant decision canvas, and an intelligence strip of contextual stats or secondary actions.
 - The all-caps CODECLASH wordmark and interlocking C/chevron mark remain visible in persistent navigation; `ARENA LIVE` is only a status signal.
 - Rank chevrons and broadcast-style number blocks are required grammar for ratings, levels, timers, XP, leaderboard movement, and result summaries. Standard rectangular panels support these more expressive signals rather than replacing them.
+- Public marketing and authentication routes retain this grammar through a visible identity anchor, a live-status data strip, and match-line treatments.
+- Public queue counts, session history, and season information use broadcast-style number blocks with uppercase mono labels and tabular numerals.
